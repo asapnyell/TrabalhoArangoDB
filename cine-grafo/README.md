@@ -221,8 +221,8 @@ Instale previamente:
 ## Clonar o Repositório
 
 ```bash
-git clone https://github.com/SEU-USUARIO/cinegrafo-nosql.git
-cd cinegrafo-nosql
+git clone https://github.com/asapnyell/TrabalhoArangoDB.git
+cd cine-grafo
 ```
 
 ---
