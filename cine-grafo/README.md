@@ -412,9 +412,9 @@ O projeto demonstra:
 
 # 👨‍💻 Autores
 
-**Danyel Henrique**
-**Lucas Cassiano**
-**Gabriel Damasceno**
+**Danyel Henrique**,
+**Lucas Cassiano**,
+**Gabriel Damasceno**.
 
 Sistemas de Informação – UniAcademia
 
