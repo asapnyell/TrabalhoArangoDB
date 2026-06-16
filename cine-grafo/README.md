@@ -222,6 +222,7 @@ Instale previamente:
 
 ```bash
 git clone https://github.com/asapnyell/TrabalhoArangoDB.git
+cd trabalhoarangodb
 cd cine-grafo
 ```
 
@@ -323,7 +324,7 @@ npm start
 # 📂 Estrutura do Projeto
 
 ```text
-cinegrafo-nosql/
+cine-grafo/
 │
 ├── src/
 ├── public/
