@@ -1,0 +1,42 @@
+services:
+  # Serviço 1: Banco de Dados ArangoDB
+  arangodb_server:
+    image: arangodb/arangodb:3.11
+    container_name: arangodb_cinegrafo
+    environment:
+      - ARANGO_ROOT_PASSWORD=root
+    ports:
+      - "8529:8529"
+    volumes:
+      - arango_data:/var/lib/arangodb3
+    networks:
+      - cinegrafo_network
+
+  # Serviço 2: API Backend (Node.js) NOVO!
+  backend_api:
+    build: ./backend # Assumindo que a pasta se chama backend
+    container_name: backend_cinegrafo
+    ports:
+      - "3000:3000"
+    depends_on:
+      - arangodb_server
+    networks:
+      - cinegrafo_network
+
+  # Serviço 3: Front-end React
+  frontend_app:
+    build: . # Mova seu React para uma pasta separada, se necessário
+    container_name: frontend_cinegrafo
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend_api
+    networks:
+      - cinegrafo_network
+
+volumes:
+  arango_data:
+
+networks:
+  cinegrafo_network:
+    driver: bridge
