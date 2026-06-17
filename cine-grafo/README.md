@@ -156,22 +156,21 @@ A consulta abaixo percorre o grafo e encontra filmes relacionados aos gêneros s
 
 ```aql
 FOR t IN @tags
-
   LET gKey = MD5(LOWER(TRIM(t)))
-
+  
   FOR m IN 1..1 INBOUND CONCAT("Genres/", gKey) HasGenre
-
+    
     COLLECT filmeId = m._id,
             titulo = m.titulo
     INTO grupo
-
-    LET pesoConexoes =
-      (LENGTH(grupo) * 5)
-      + FLOOR(RAND() * 4)
-
+    
+    LET pesoConexoes = (LENGTH(grupo) * 5) + FLOOR(RAND() * 4)
+    
     SORT pesoConexoes DESC
-
+    LIMIT 10
+    
     RETURN {
+      id: filmeId,
       filme: titulo,
       votos_similares: pesoConexoes
     }
